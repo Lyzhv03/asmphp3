@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('books.index');
-})->name('book.home');
+// Route::get('/', function () {
+//     return view('books.index');
+// })->name('book.home');
 
 // Route::get('/books',[BookController::class,'index'])->name('book.index');
 Route::get('/list',[BookController::class,'index'])->name('book.list');
+Route::get('/',[BookController::class,'home'])->name('book.home');
 
 Route::get('/detail/{id}',[BookController::class,'detail'])->name('book.detail');
+
+Route::get('category/{id}',[CategoryController::class,'index'])->name('cate.index');

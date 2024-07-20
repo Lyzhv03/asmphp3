@@ -220,11 +220,17 @@
 
             <li class="nav-item dropdown">
               <a class="nav-link mx-2 dropdown-toggle align-items-center" role="button" id="blog"
-                data-bs-toggle="dropdown" aria-expanded="false">blog</a>
+                data-bs-toggle="dropdown" aria-expanded="false">DANH MỤC</a>
               <ul class="dropdown-menu" aria-labelledby="blog">
-                <li><a href="blog.html" class="dropdown-item">blog<span
+                <li><a href="{{route('cate.index',1)}}" class="dropdown-item">Giáo Dục<span
                       class="badge bg-secondary text-white ms-2"></span></a></li>
-                <li><a href="single-post.html" class="dropdown-item">single post<span
+                <li><a href="{{route('cate.index',2)}}" class="dropdown-item">Pháp Luật<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="{{route('cate.index',3)}}" class="dropdown-item">Thế Giới<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="{{route('cate.index',4)}}" class="dropdown-item">Kinh Doanh<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="{{route('cate.index',5)}}" class="dropdown-item">Thiếu Nhi<span
                       class="badge bg-secondary text-white ms-2"></span></a></li>
               </ul>
             </li>

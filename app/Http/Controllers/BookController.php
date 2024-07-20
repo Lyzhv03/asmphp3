@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -12,10 +13,16 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::paginate(10);
+        // $books = Book::paginate(10);
+        $books = DB::table('books')->join('categories','cate_id','=','categories.id')
+                    ->select('books.*','name')->paginate(12);
         return view('books.list',compact('books'));
     }
-
+    public function home(){
+        $books = DB::table('books')->join('categories','cate_id','=','categories.id')
+                    ->select('books.*','name')->limit(8)->orderByDesc('price')->get();
+        return view('books.index',compact('books'));
+    }
     public function detail(Request $request){
         $book = Book::query()->where('id',$request['id'])->first();
         return view('books.detail',compact('book'));
