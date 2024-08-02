@@ -17,7 +17,7 @@
                             <p class="text-muted">Nhà xuất bản :{{ $book->publisher }}</p>
                             <p class="text-muted">Ngày xuất bản{{ $book->publication }}</p>
                             <p class="text-muted">Số lượng{{ $book->quantity }}</p>
-                            <p class="text-muted">ID Cate{{ $book->cate_id }}</p>
+                            <p class="text-muted">Danh mục :{{ $book->cate_id }}</p>
                         </div>
                     </div>
                 </div>

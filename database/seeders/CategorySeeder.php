@@ -13,11 +13,6 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('categories')->insert([
-            ['name' => 'Thể thao'],
-            ['name' => 'Pháp luật'],
-            ['name' => 'Thế giới'],
-            ['name' => 'Du lịch']
-        ]);
+        //
     }
 }
