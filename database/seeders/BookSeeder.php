@@ -26,7 +26,7 @@ class BookSeeder extends Seeder
                 'publication' => $faker->date(),
                 'price' => rand(1, 1000),
                 'quantity' => rand(1, 1000),
-                'cate_id' => rand(1, 5)
+                'cate_id' => rand(1, 4)
             ]);
         }
     }
