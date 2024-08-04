@@ -1,6 +1,6 @@
 @extends('admin.dashbroard.index')
 @section('content')
-    <h1>Danh sách bài viết</h1>
+    <h1>Danh sách User</h1>
 
     {{-- @auth
         <div class="">
@@ -17,37 +17,31 @@
         <thead>
             <tr>
                 <th scope="col">#ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Image</th>
-                <th scope="col">Author</th>
-                <th scope="col">Publisher</th>
-                <th scope="col">Publication</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quatity</th>
-                <th scope="col">Cate Name</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Avatar</th>
+                <th scope="col">Role</th>
                 <th scope="col">
-                    <a href="{{ route('admin.books.create') }}" class="btn btn-primary">Create new</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary">Create new</a>
                 </th>
 
             </tr>
         </thead>
         <tbody>
-            @foreach ($books as $post)
+            @foreach ($users as $post)
                 <tr>
                     <th scope="row">{{ $post->id }}</th>
-                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->fullname }}</td>
+                    <td>{{ $post->username }}</td>
+                    <td>{{ $post->email }}</td>
                     <td>
-                        <img src="{{ asset('storage/' . $post->thumbnail) }}" width="50" alt="">
+                        <img src="{{ asset('storage/' . $post->avatar) }}" width="50" alt="">
                     </td>
-                    <td>{{ $post->author }}</td>
-                    <td>{{ $post->publisher }}</td>
-                    <td>{{ $post->publication }}</td>
-                    <td>{{ $post->price }}</td>
-                    <td>{{ $post->quantity }}</td>
-                    <td>{{ $post->name }}</td>
+                    <td>{{ $post->role }}</td>
                     <td class="d-flex gap-1">
-                        <a href="{{ route('admin.books.edit', $post) }}" class="btn btn-primary">Edit</a>
-                        <form action="{{ route('admin.books.destroy', $post) }}" method="post">
+                        <a href="{{ route('admin.users.edit', $post) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('admin.users.destroy', $post) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button onclick="return confirm('Bạn có muốn xóa không?')" type="submit"
@@ -59,5 +53,5 @@
 
         </tbody>
     </table>
-    {{ $books->links() }}
+    {{ $users->links() }}
 @endsection
