@@ -20,7 +20,7 @@ class AdminMiddleware
             if (Auth::user()->role == 'admin') {
                 return $next($request);
             } else {
-                return redirect()->route('login')->with('errorLogin', 'Tài khoản của bạn ko có đủ quyền truy cập trang này !!');
+                return redirect()->route('book.home');
             }
         }
         return redirect()->route('login');

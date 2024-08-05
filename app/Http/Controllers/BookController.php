@@ -110,4 +110,9 @@ class BookController extends Controller
         $post->delete();
         return redirect()->route('admin.books.index')->with('message', 'Xóa dữ liệu thành công');
     }
+
+    public function bookPrice(){
+        $books = Book::orderBy('price','desc')->limit(6)->get();
+        return view('layout.index',compact('books'));
+    }
 }

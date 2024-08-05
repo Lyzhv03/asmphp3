@@ -18,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('books.index');
-// })->name('book.home');
+Route::get('/',[BookController::class,'bookPrice'])->name('book.home');
+Route::get('/contact', function () {
+    return view('layout.contact');
+})->name('book.contact');
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('admin.dashbroard.db');
 })->name('admin.db')->middleware(AdminMiddleware::class);
 

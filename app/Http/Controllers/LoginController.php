@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterPostRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,14 +21,14 @@ class LoginController extends Controller
         $data = $request->only(['email','password']);
         //Kiem tra dang nhap
         if(Auth::attempt($data)){//ktra xem co trùng email,pass tren db ko
-            return redirect()->route('admin.books.index');//dang nhap thanh cong
+            return redirect()->route('admin.db');//dang nhap thanh cong
         } else{
             return redirect()->back()->with('errorLogin','Email hoặc Password không đúng !!!');
         }
 
     }
     //Register
-    public function postRegister(Request $request){
+    public function postRegister(RegisterPostRequest $request){
         $data = $request->except('avatar');
         $data['avatar'] = '';
         if($request->hasFile('avatar')){
