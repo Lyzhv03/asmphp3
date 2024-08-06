@@ -44,8 +44,10 @@
                         <form action="{{ route('admin.users.destroy', $post) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button onclick="return confirm('Bạn có muốn xóa không?')" type="submit"
-                                class="btn btn-danger">Delete</button>
+
+                            <button
+                                onclick="return confirm('Bạn có muốn xóa không?')" class="btn btn-danger" type="submit">Delete
+                            </button>
                         </form>
                     </td>
                 </tr>

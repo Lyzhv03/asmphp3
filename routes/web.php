@@ -5,6 +5,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +27,10 @@ Route::get('/contact', function () {
 })->name('book.contact');
 
 Route::get('/admin', function () {
-    return view('admin.dashbroard.db');
+    $countUser = User::count();
+    $countBook = Book::count();
+    $countCate = Category::count();
+    return view('admin.dashbroard.db',compact('countUser','countBook','countCate'));
 })->name('admin.db')->middleware(AdminMiddleware::class);
 
 // Route::get('/books',[BookController::class,'index'])->name('book.index');

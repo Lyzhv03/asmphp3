@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookPostRequest;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BookPostRequest $request)
     {
         $data = $request->except('thumbnail'); //hàm except để loại bỏ key image
 
@@ -82,7 +83,7 @@ class BookController extends Controller
     {
         $data = $request->except('thumbnail');
 
-        $old_image = $post->image;
+        $old_image = $post->thumbnail;
         //Neu ko cap nhat anh
         $data['thumbnail'] = $old_image;
         //new  cap nhat anh

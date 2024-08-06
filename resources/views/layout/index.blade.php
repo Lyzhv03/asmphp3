@@ -164,7 +164,7 @@
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="#"><img src="{{asset('courses-master/assets/img/gallery/featured1.png ')}}" alt=""></a>
+                                <a href="#"><img src="{{asset('storage/'. $item->thumbnail)}}" alt=""></a>
                             </div>
                             <div class="properties__caption">
                                 <h3><a href="#">{{$item->title}}</a></h3>
